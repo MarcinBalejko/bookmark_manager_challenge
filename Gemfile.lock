@@ -23,6 +23,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.4-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    pg (1.1.4)
+    pg (1.1.4-x64-mingw32)
     public_suffix (3.1.1)
     rack (2.0.7)
     rack-protection (2.0.7)
@@ -70,6 +72,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  pg
   rspec
   selenium-webdriver
   shotgun
