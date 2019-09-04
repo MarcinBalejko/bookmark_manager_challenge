@@ -1,12 +1,13 @@
 require_relative './setup_test_database'
-
+# Setting the environment to 'test'
 ENV['ENVIRONMENT'] = 'test'
-
-
+# Bringing the content of the 'app.rb' file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+# Requiring all the testing gems
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+# Telling Capybara to talk to BookmarkManager
 Capybara.app = BookmarkManager
 require 'features/web_helpers'
 require 'simplecov'
