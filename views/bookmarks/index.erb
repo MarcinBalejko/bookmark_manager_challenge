@@ -7,7 +7,7 @@
 <body>
   <ul>
     <% @bookmarks.each do |bookmark| %>
-      <li id="bookmark-<%= bookmark.id %>">
+      <li class="bookmark" id="bookmark-<%= bookmark.id %>">
         <a href="<%= bookmark.url %>" target="_blank">
           <%= bookmark.title %>
         </a>

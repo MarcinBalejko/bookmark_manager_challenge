@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './lib/bookmark'
 class BookmarkManager < Sinatra::Base
     enable :sessions, :method_override
+
     get '/' do
         'Bookmark Manager'
     end
@@ -12,7 +13,7 @@ class BookmarkManager < Sinatra::Base
     end
 
     get '/bookmarks/new' do
-        erb :"bookmarks/new"
+        erb :'bookmarks/new'
     end
 
     post '/bookmarks' do
