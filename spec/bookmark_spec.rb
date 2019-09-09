@@ -3,10 +3,7 @@ require 'database_helpers'
 
 describe Bookmark do
   describe '.all' do
-    it 'returns a list of bookmarks' do
-
-      # Add the test data
-      
+    it 'returns a list of bookmarks' do  
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
       Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
       Bookmark.create(url: "http://www.google.com", title: "Google")
@@ -40,7 +37,6 @@ describe Bookmark do
       expect(Bookmark.all.length).to eq 0
     end
   end
-
 
   describe '.update' do
     it 'updates the bookmark with the given data' do
