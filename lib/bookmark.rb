@@ -11,8 +11,6 @@ class Bookmark
   end
 
   def self.delete(id:)
-
-
     DatabaseConnection.query("DELETE FROM bookmarks WHERE id = #{id}")
   end
 
@@ -28,22 +26,20 @@ class Bookmark
   end
 
   def self.create(url:, title:)
-    
-
     result = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
+
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
     
   def self.update(id:, title:, url:)
-    
     result = DatabaseConnection.query("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = #{id} RETURNING id, url, title;")
+
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
-  def self.find(id:)
-
-    
+  def self.find(id:) 
     result = DatabaseConnection.query("SELECT * FROM bookmarks WHERE id = #{id}")
+
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
