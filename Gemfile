@@ -10,6 +10,8 @@ gem 'pg'
 
 gem 'sinatra'
 
+gem 'sinatra-flash'
+
 gem 'shotgun'
 
 gem 'rspec', group: :test
