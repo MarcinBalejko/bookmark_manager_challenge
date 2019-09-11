@@ -68,6 +68,7 @@ describe Bookmark do
     end
   end
 
+  
   describe '#comments' do
     it 'returns a list of comments on the bookmark' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -76,6 +77,17 @@ describe Bookmark do
       comment = bookmark.comments.first
   
       expect(comment['text']).to eq 'Test comment'
+    end
+  end
+
+  let(:comment_class) { double(:comment_class) }
+
+  describe '.comments' do
+    it 'calls .where on the Comment class' do
+      bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      expect(comment_class).to receive(:where).with(bookmark_id: bookmark.id)
+
+      bookmark.comments(comment_class)
     end
   end
 
