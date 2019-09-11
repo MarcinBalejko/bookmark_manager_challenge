@@ -50,4 +50,12 @@ class Bookmark
     url =~ /\A#{URI::regexp(['http', 'https'])}\z/
   end
 
+  def comments
+    DatabaseConnection.query("SELECT * FROM comments WHERE bookmark_id = #{id};")
+  end
+  
+  def comments
+    DatabaseConnection.query("SELECT * FROM comments WHERE bookmark_id = #{id};")
+  end
+
 end
