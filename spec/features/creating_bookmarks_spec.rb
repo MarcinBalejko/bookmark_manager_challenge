@@ -6,6 +6,7 @@ feature 'Adding a new bookmark' do
       click_button('Submit')
       expect(page).to have_link('Test Bookmark', href: 'http://www.testbookmark.com')
     end
+    
     scenario 'The bookmark must be a valid URL' do
       visit('/bookmarks/new')
       fill_in('url', with: 'not a real bookmark')
