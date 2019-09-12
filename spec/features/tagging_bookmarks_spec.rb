@@ -1,4 +1,3 @@
-
 feature 'Adding and viewing tags' do
     feature 'a user can add and then view a tag' do
       scenario 'a tag is added to a bookmark' do

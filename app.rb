@@ -4,7 +4,6 @@ require 'uri'
 require_relative './lib/bookmark'
 require_relative './database_connection_setup.rb'
 require_relative './lib/comment'
-
 require_relative './lib/tag'
 require_relative './lib/bookmark_tag'
 require_relative './database_connection_setup'
