@@ -8,7 +8,7 @@ feature 'Adding and viewing comments' do
   
         expect(current_path).to eq "/bookmarks/#{bookmark.id}/comments/new"
   
-        fill_in 'comment', with: 'This is a second comment'
+        fill_in 'comment', with: 'this is a test comment on this bookmark'
         click_button 'Submit'
   
         expect(current_path).to eq '/bookmarks'

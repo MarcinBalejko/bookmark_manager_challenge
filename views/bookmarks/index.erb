@@ -1,13 +1,6 @@
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Main Page</title>
-</head>
-<body>
 <ul>
-<% @bookmarks.each do |bookmark| %>
-    <li id="bookmark-<%= bookmark.id %>">
+  <% @bookmarks.each do |bookmark| %>
+    <li class="bookmark" id="bookmark-<%= bookmark.id %>">
       <a href="<%= bookmark.url %>" target="_blank">
         <%= bookmark.title %>
       </a>
@@ -18,15 +11,19 @@
       <form action="/bookmarks/<%= bookmark.id %>/edit" method="get">
         <input type="submit" value="Edit" />
       </form>
+      <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+      </form>
       <ul>
         <% bookmark.comments.each do |comment| %>
-          <li><%= comment['text'] %></li>
+          <li><%= comment.text %></li>
         <% end %>
       </ul>
     </li>
-<% end %>
+  <% end %>
+</ul>
 <p>
+<h2>
   <%= flash[:notice] %>
 </p>
-</body>
-</html>
+</h2>
