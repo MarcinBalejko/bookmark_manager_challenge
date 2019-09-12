@@ -16,7 +16,6 @@ describe Comment do
       expect(comment.bookmark_id).to eq bookmark.id
     end
   end
-
   describe '.where' do
     it 'gets the relevant comments from the databse' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
