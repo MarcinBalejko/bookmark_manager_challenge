@@ -6,6 +6,7 @@ require_relative './database_connection_setup.rb'
 require_relative './lib/comment'
 require_relative './lib/tag'
 require_relative './lib/bookmark_tag'
+require_relative './lib/user'
 require_relative './database_connection_setup'
 
 class BookmarkManager < Sinatra::Base
@@ -17,7 +18,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
@@ -72,7 +73,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/users' do
-    User.create(email: params[:email], password: params[:password])
+    user = User.create(email: params['email'], password: params['password'])
     session[:user_id] = user.id
     redirect '/bookmarks'
   end
