@@ -20,6 +20,7 @@ describe Bookmark do
       expect(bookmarks.first.url).to eq 'http://www.makersacademy.com'
     end
   end
+
   describe '.create' do
     it 'creates a new bookmark' do
       bookmark = Bookmark.create(url: 'http://www.testbookmark.com', title: 'Test Bookmark')
@@ -34,6 +35,7 @@ describe Bookmark do
       expect(bookmark).not_to be_a Bookmark
     end
   end
+
   describe '.delete' do
     it 'deletes the given bookmark' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -41,6 +43,7 @@ describe Bookmark do
       expect(Bookmark.all.length).to eq 0
     end
   end
+
   describe '.update' do
     it 'updates the bookmark with the given data' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -51,6 +54,7 @@ describe Bookmark do
       expect(updated_bookmark.url).to eq 'http://www.snakersacademy.com'
     end
   end
+
   describe '.find' do
     it 'returns the requested bookmark object' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -61,6 +65,7 @@ describe Bookmark do
       expect(result.url).to eq 'http://www.makersacademy.com'
     end
   end
+
   describe '.where' do
     it 'returns bookmarks with the given tag id' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
@@ -77,6 +82,7 @@ describe Bookmark do
       expect(result.url).to eq bookmark.url
     end
   end
+
   describe '#comments' do
     it 'calls .where on the Comment class' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -84,6 +90,7 @@ describe Bookmark do
       bookmark.comments(comment_class)
     end
   end
+
   describe '#tags' do
     it 'calls .where on the Tag class' do
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
@@ -91,5 +98,6 @@ describe Bookmark do
       bookmark.tags(tag_class)
     end
   end
+  
 end
   

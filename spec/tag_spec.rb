@@ -15,6 +15,7 @@ describe Tag do
       expect(tag.content).to eq 'test tag'
     end
   end
+
   describe '.where' do
     it 'returns tags linked to the given bookmark id' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
@@ -32,4 +33,5 @@ describe Tag do
       expect(tag.content).to eq tag1.content
     end
   end
+  
 end

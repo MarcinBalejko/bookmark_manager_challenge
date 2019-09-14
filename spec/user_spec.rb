@@ -33,4 +33,5 @@ describe User do
       expect(User.find(id: nil)).to eq nil
     end
   end
+  
 end
