@@ -6,6 +6,16 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
 
+  def self.create(email:, password:)
+    # encrypt the plantext password
+    encrypted_password = BCrypt::Password.create(password)
+
+    # insert the encrypted password into the database, instead of the plaintext one
+    result = DatabaseConnection.query("INSERT INTO users (email, password) VALUES('#{email}', '#{encrypted_password}') RETURNING id, email")
+
+    User.new(id: result[0]['id'], email: result[0]['email'])
+  end
+
   attr_reader :id, :email
 
   def initialize(id:, email:)
