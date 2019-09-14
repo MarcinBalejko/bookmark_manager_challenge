@@ -1,3 +1,6 @@
+<% if @user %>
+  <h1>Welcome, <%= @user.email %></h1>
+<% end %>
 <ul>
   <% @bookmarks.each do |bookmark| %>
     <li class="bookmark" id="bookmark-<%= bookmark.id %>">
@@ -17,22 +20,30 @@
       <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
         <input type="submit" value="Add Tag" />
       </form>
-      <div>
-        <h2>Comments</h2>
-        <ul>
-          <% bookmark.comments.each do |comment| %>
-            <li><%= comment.text %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div>
-        <h2>Tags</h2>
-        <ul>
-          <% bookmark.tags.each do |tag| %>
-            <li><%= tag.content %></li>
-          <% end %>
-        </ul>
-      </div>
+      <% if bookmark.comments.length > 0 %>
+        <div>
+          <h2>Comments</h2>
+          <ul>
+            <% bookmark.comments.each do |comment| %>
+              <li><%= comment.text %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <% if bookmark.tags.length > 0 %>
+        <div>
+          <h2>Tags</h2>
+          <ul>
+            <% bookmark.tags.each do |tag| %>
+              <li>
+                <a href="/tags/<%= tag.id %>/bookmarks">
+                  <%= tag.content %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>
