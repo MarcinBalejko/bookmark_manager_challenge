@@ -83,11 +83,12 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/sessions' do
-    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{params[:email]}'")
-    user = User.new(result[0]['id'], result[0]['email'], result[0]['password'])
+    user = User.authenticate(email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect('/bookmarks')
   end
+
+
 
   run! if app_file == $0
 end
