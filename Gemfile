@@ -23,3 +23,5 @@ gem 'capybara', group: :test
 gem 'selenium-webdriver'
 
 gem 'simplecov'
+
+gem 'rake'
