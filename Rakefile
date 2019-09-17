@@ -30,3 +30,16 @@ task :setup do
     connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
   end
 end
+
+task :teardown do
+  p "Destroying databases...type 'y' to confirm that you want to destroy the Bookmark Manager databases. This will remove all data in those databases!"
+
+  confirm = STDIN.gets.chomp
+
+  return unless confirm == 'y'
+
+  ['bookmark_manager', 'bookmark_manager_test'].each do |database|
+    connection = PG.connect
+    connection.exec("DROP DATABASE #{ database }")
+  end
+end
