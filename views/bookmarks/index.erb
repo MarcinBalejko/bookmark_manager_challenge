@@ -8,7 +8,11 @@
   </form>
 <% end %>
 <ul>
+
+
+ <% if @bookmarks != nil %>
   <% @bookmarks.each do |bookmark| %>
+    <% if bookmark.owner_id == @user.id%>
     <li class="bookmark" id="bookmark-<%= bookmark.id %>">
       <a href="<%= bookmark.url %>" target="_blank">
         <%= bookmark.title %>
@@ -52,6 +56,14 @@
       <% end %>
     </li>
   <% end %>
+
+   <%end %>
+<%end%>
+
+
+
+
+
 </ul>
 <h2>
   <%= flash[:notice] %>

@@ -19,6 +19,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @user = User.find(id: session[:user_id])
+    @the_owner_id = session[:user_id]
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
@@ -28,7 +29,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    flash[:notice] = "Please submit a valid URL" unless Bookmark.create(url: params[:url], title: params[:title])
+    
+    flash[:notice] = "Please submit a valid URL" unless Bookmark.create(url: params[:url], title: params[:title], owner_id: session[:user_id])
     redirect '/bookmarks'
   end
 

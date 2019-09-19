@@ -2,12 +2,15 @@ require_relative 'database_connection'
 require 'uri'
 require_relative './comment'
 require_relative './tag'
+require_relative 'user'
+
 class Bookmark
-  attr_reader :id, :title, :url
-  def initialize(id:, title:, url:)
+  attr_reader :id, :title, :url, :owner_id
+  def initialize(id:, title:, url:, owner_id:)
     @id = id
     @title = title
     @url = url
+    @owner_id = owner_id
   end
 
   def self.all
@@ -16,15 +19,16 @@ class Bookmark
       Bookmark.new(
         url: bookmark['url'],
         title: bookmark['title'],
-        id: bookmark['id']
+        id: bookmark['id'],
+        owner_id: bookmark['owner_id']
       )
     end
   end
 
-  def self.create(url:, title:)
+  def self.create(url:, title:, owner_id:)
     return false unless is_url?(url)
-    result = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
-    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+    result = DatabaseConnection.query("INSERT INTO bookmarks (url, title, owner_id) VALUES('#{url}', '#{title}', '#{owner_id}') RETURNING id, title, url, owner_id;")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'], owner_id: result[0]['owner_id'])
   end
 
   def self.delete(id:)
