@@ -1,7 +1,7 @@
 require 'pg'
 
 task :setup_test_database do
-  p "Cleaning database..."
+  #p "Cleaning database..."
 
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
