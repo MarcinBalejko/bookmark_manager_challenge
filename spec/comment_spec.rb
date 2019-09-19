@@ -3,9 +3,10 @@ require 'bookmark'
 require 'database_helpers'
 
 describe Comment do
+  let(:user) { User.create(email: 'user@gmail.com', password: 'testpassword') }
   describe '.create' do
     it 'creates a new comment' do
-      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
       comment = Comment.create(text: 'This is a test comment', bookmark_id: bookmark.id)
 
       persisted_data = persisted_data(id: comment.id, table: 'comments')
@@ -18,7 +19,7 @@ describe Comment do
   end
   describe '.where' do
     it 'gets the relevant comments from the databse' do
-      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
       comment = Comment.create(text: 'This is a test comment', bookmark_id: bookmark.id)
       Comment.create(text: 'This is a second test comment', bookmark_id: bookmark.id)
 

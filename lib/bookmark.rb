@@ -49,7 +49,6 @@ class Bookmark
     result = DatabaseConnection.query("SELECT id, url, title, owner_id FROM bookmarks_tags INNER JOIN bookmarks ON bookmarks.id = bookmarks_tags.bookmark_id WHERE tag_id = #{tag_id};")
     result.map do |bookmark|
       Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'], owner_id: result[0]['owner_id'])
-      
     end
   end
 
