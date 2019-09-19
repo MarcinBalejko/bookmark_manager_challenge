@@ -15,6 +15,7 @@ feature 'Adding and viewing tags' do
         first('.bookmark').click_button 'Add Tag'
         fill_in 'tag', with: 'test tag'
         click_button 'Submit'
+        
         expect(current_path).to eq '/bookmarks'
         expect(first('.bookmark')).to have_content 'test tag'
       end

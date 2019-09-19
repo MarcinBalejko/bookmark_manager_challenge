@@ -28,7 +28,6 @@ class User
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
   
-
 end
 
 

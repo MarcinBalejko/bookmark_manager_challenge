@@ -7,7 +7,6 @@ class Tag
   def initialize(id:, content:)
     @id = id
     @content = content
-
   end
 
   def self.create(content:)
@@ -21,4 +20,5 @@ class Tag
       Tag.new(id: tag['id'], content: tag['content'])
     end
   end
+  
 end

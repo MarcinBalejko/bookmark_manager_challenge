@@ -8,14 +8,30 @@ feature 'Viewing bookmarks' do
     end
   end
   feature 'viewing bookmarks' do
+    let(:user) { User.create(email: 'user@gmail.com', password: 'testpassword') }
     scenario 'bookmarks are visible' do
-      Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
-      Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
-      Bookmark.create(url: 'http://www.google.com', title: 'Google')
-
-      visit '/bookmarks'
+      visit('/')
+      click_button 'Sign up'
+      fill_in('email', with: 'user@gmail.com')
+      fill_in('password', with: 'testpassword')
+      click_button 'Submit'
+      #adding a bookmark stage
+      click_button 'Add Bookmark'
+      fill_in('url', with: 'http://www.testbookmark.com')
+      fill_in('title', with: 'Test Bookmark')
+      click_button('Submit')
+      #adding the second bookmark
+      click_button 'Add Bookmark'
+      fill_in('url', with: 'http://www.destroyallsoftware.com')
+      fill_in('title', with: 'Destroy All Software')
+      click_button('Submit')
+      #adding the third bookmark
+      click_button 'Add Bookmark'
+      fill_in('url', with: 'http://www.google.com')
+      fill_in('title', with: 'Google')
+      click_button('Submit')
   
-      expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+      expect(page).to have_link('Test Bookmark', href: 'http://www.testbookmark.com')
       expect(page).to have_link('Destroy All Software',  href: 'http://www.destroyallsoftware.com')
       expect(page).to have_link('Google', href: 'http://www.google.com')
     end
