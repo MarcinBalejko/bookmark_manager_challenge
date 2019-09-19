@@ -35,26 +35,21 @@ class Bookmark
     DatabaseConnection.query("DELETE FROM bookmarks WHERE id = #{id}")
   end
 
-  def self.update(id:, title:, url:)
-    result = DatabaseConnection.query("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = #{id} RETURNING id, url, title;")
-    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+  def self.update(id:, title:, url:, owner_id:)
+    result = DatabaseConnection.query("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = #{id} RETURNING id, url, title, owner_id;")
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'], owner_id: result[0]['owner_id'])
   end
 
   def self.find(id:)
     result = DatabaseConnection.query("SELECT * FROM bookmarks WHERE id = #{id}")
-    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'], owner_id: result[0]['owner_id'])
   end
 
   def self.where(tag_id:)
-    result = DatabaseConnection.query("SELECT id, title, url FROM bookmarks_tags INNER JOIN bookmarks ON bookmarks.id = bookmarks_tags.bookmark_id WHERE bookmarks_tags.tag_id = '#{tag_id}';")
-    result = DatabaseConnection.query("SELECT id, url, title FROM bookmarks_tags INNER JOIN bookmarks ON bookmarks.id = bookmarks_tags.bookmark_id WHERE tag_id = #{tag_id};")
+    result = DatabaseConnection.query("SELECT id, url, title, owner_id FROM bookmarks_tags INNER JOIN bookmarks ON bookmarks.id = bookmarks_tags.bookmark_id WHERE tag_id = #{tag_id};")
     result.map do |bookmark|
-      Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'])
-      Bookmark.new(
-        id: bookmark['id'],
-        title: bookmark['title'],
-        url: bookmark['url']
-      )
+      Bookmark.new(id: bookmark['id'], title: bookmark['title'], url: bookmark['url'], owner_id: result[0]['owner_id'])
+      
     end
   end
 
