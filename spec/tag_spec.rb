@@ -4,6 +4,7 @@ require 'database_helpers'
 require 'bookmark_tag'
 
 describe Tag do
+  let(:user) { User.create(email: 'user@gmail.com', password: 'testpassword') }
   describe '.create' do
     it 'creates a new Tag object' do
       tag = Tag.create(content: 'test tag')
@@ -18,7 +19,7 @@ describe Tag do
 
   describe '.where' do
     it 'returns tags linked to the given bookmark id' do
-      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
       tag1 = Tag.create(content: 'test tag 1')
       tag2 = Tag.create(content: 'test tag 2')
       BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)

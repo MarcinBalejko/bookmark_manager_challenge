@@ -19,7 +19,7 @@ class BookmarkManager < Sinatra::Base
 
   get '/bookmarks' do
     @user = User.find(id: session[:user_id])
-    @the_owner_id = session[:user_id]
+    
     @bookmarks = Bookmark.all
     erb :'bookmarks/index'
   end
@@ -45,7 +45,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   patch '/bookmarks/:id' do
-    Bookmark.update(id: params[:id], title: params[:title], url: params[:url])
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url], owner_id: session[:user_id])  #risky change here, not sure
     redirect('/bookmarks')
   end
 

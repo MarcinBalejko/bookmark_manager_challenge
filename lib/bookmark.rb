@@ -36,7 +36,7 @@ class Bookmark
   end
 
   def self.update(id:, title:, url:, owner_id:)
-    result = DatabaseConnection.query("UPDATE bookmarks SET url = '#{url}', title = '#{title}' WHERE id = #{id} RETURNING id, url, title, owner_id;")
+    result = DatabaseConnection.query("UPDATE bookmarks SET url = '#{url}', title = '#{title}', owner_id = '#{owner_id}' WHERE id = #{id} RETURNING id, url, title, owner_id;")
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'], owner_id: result[0]['owner_id'])
   end
 
