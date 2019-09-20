@@ -5,14 +5,8 @@ task :setup_test_database do
 
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
-  # Clear the database
   connection.exec("TRUNCATE bookmarks, comments, tags, bookmarks_tags, users;")
-
-  # Add the test data
-  #connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.makersacademy.com', 'Makers Academy');")
-  #connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'Google');")
-  #connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.facebook.com', 'Facebook');")
-
+  
 end
 
 task :setup do
