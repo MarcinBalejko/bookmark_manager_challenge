@@ -28,6 +28,7 @@ task :setup do
     connection.exec("CREATE TABLE bookmarks_tags(tag_id INTEGER REFERENCES tags (id), bookmark_id INTEGER REFERENCES bookmarks (id));")
     connection.exec("CREATE TABLE comments(id SERIAL PRIMARY KEY, text VARCHAR(240), bookmark_id INTEGER REFERENCES bookmarks (id));")
     connection.exec("CREATE TABLE users (id SERIAL PRIMARY KEY, email VARCHAR(60), password VARCHAR(140));")
+    connection.exec("ALTER TABLE bookmarks ADD COLUMN owner_id INTEGER REFERENCES users (id);")
   end
 end
 
