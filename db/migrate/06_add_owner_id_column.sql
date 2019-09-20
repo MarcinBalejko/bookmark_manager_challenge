@@ -1,0 +1,1 @@
+ALTER TABLE bookmarks ADD COLUMN owner_id INTEGER REFERENCES users (id);
