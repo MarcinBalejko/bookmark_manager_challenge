@@ -10,6 +10,7 @@ require 'capybara/rspec'
 require 'rspec'
 # Telling Capybara to talk to BookmarkManager
 Capybara.app = BookmarkManager
+require 'features/web_helpers'
 require 'simplecov'
 SimpleCov.start
 
