@@ -15,17 +15,22 @@
             <div class="card-body">
                 <h4 class="card-title">Registration</h4>
 
-                <div id="registration-button-1" >
-                    <form action="/sessions/new" method="get" style="max-width: 40rem; border-radius: 25px;" >
-                        <input type="submit" class="btn btn-warning" value="Sign in" >
-                    </form>
-                    
+                <div id="buttons-container">
+                    <div id="registration-button-1"  >
+                        <form action="/sessions/new" method="get" >
+                            <input type="submit" class="btn btn-warning" value="Sign in " >
+                        </form>
+                    </div>
+
+                    <div id="registartion-button-2" >
+                        <form action="/users/new" method="get" >
+                            <input type="submit" class="btn btn-warning" value="Sign up">
+                        </form>
+                    </div>
                 </div>
-                <div id="registartion-button-2">
-                    <form action="/users/new" method="get" >
-                        <input type="submit" class="btn btn-warning" value="Sign up">
-                    </form>
-                </div>
+                
+
+
             </div>
         </div>
     </div>
@@ -34,3 +39,5 @@
 
 </body>
 </html>
+
+
