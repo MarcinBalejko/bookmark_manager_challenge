@@ -6,19 +6,20 @@
 <link href="<%= url('/style_main_page.css') %>" rel="stylesheet" type="text/css" >
 </head>
 <body>
-<div class="col-md-6 mx-auto">
-    <div id="main-card">
-        <div class="card text-white bg-primary mb-3" style="max-width: 40rem;">
+<div class="col-md-5 mx-auto">
+    <div id="main-card" >
+        <div class="card text-white bg-primary mb-3" style="max-width: 40rem; border-radius: 25px;">
             <div class="card-header">
                 Bookmark Manager
             </div>
             <div class="card-body">
                 <h4 class="card-title">Registration</h4>
 
-                <div id="registration-button-1">
-                    <form action="/sessions/new" method="get" style="width: 30px">
+                <div id="registration-button-1" >
+                    <form action="/sessions/new" method="get" style="max-width: 40rem; border-radius: 25px;" >
                         <input type="submit" class="btn btn-warning" value="Sign in" >
                     </form>
+                    
                 </div>
                 <div id="registartion-button-2">
                     <form action="/users/new" method="get" >
