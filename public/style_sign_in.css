@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body{
+    margin-top: 5cm;
+}
+
+.card-header{
+    text-align: center;
+    font-size: 20px;
+}
+
+.card-title{
+    text-align: center;
+}
+
+#main-card{
+    margin-top: 100px;
+    
+}
+
+.card-body{
+    text-align: center;
+}
+
+
+.btn{
+    padding: 2px;
+    border: 0px;
+    text-align: center;
+}

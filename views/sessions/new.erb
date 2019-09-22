@@ -1,8 +1,40 @@
-<h2>
-  <%= flash[:notice] %>
-</h2>
-<form action="/sessions" method="post">
-  <input type="email" name="email" placeholder="Email"/>
-  <input type="password" name="password" placeholder="Password"/>
-  <input type="submit" value="Sign in"/>
-</form>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign in</title>
+<link href="https://bootswatch.com/4/cosmo/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="<%= url('/style_sign_in.css') %>" rel="stylesheet" type="text/css" >
+</head>
+<body>
+<div class="col-md-5 mx-auto">
+    <div id="main-card" >
+      <div class="card text-white bg-primary mb-3" style="max-width: 40rem; border-radius: 25px;">
+        <div class="card-header">
+          Bookmark Manager
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">
+            Sign in to Bookmark Manager
+          </h4>
+          <h2>
+          <%= flash[:notice] %>
+          </h2>
+          <div id="sign-in-button">
+            <form action="/sessions" method="post" >
+              <input type="email" name="email" placeholder="Email"/>
+              <input type="password" name="password" placeholder="Password"/>
+              <input type="submit" value="Sign in" class="btn btn-warning"  />
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
