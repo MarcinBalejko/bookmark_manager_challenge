@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+.card-header{
+    text-align: center;
+    font-size: 20px;
+}
+
+#main-card{
+    
+}
+
+#registration-button-1{
+    padding: 2px;
+}
+
+#registration-button-2{
+    
+}
+
