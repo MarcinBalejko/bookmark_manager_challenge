@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-     
         <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+        <link href="<%= url('/style_main_page.css') %>" rel="stylesheet" type="text/css" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
@@ -24,10 +24,10 @@
                     <span style="display: inline;">
                     
                         <form action="/sessions/new" method="get" >
-                            <input style="float: left; margin-bottom: 20px; margin-left: 70px;" type="button"  class="btn btn-warning" value="Sign in"  style="font-size: 20px; font-family: 'Cookie', cursive;">
+                            <input style="float: left; margin-bottom: 20px; margin-left: 70px;" type="submit"  class="btn btn-warning" value="Sign in"  style="font-size: 20px; font-family: 'Cookie', cursive;">
                         </form>
                         <form action="/users/new" method="get" >
-                            <input style="float: right; margin-bottom: 20px; margin-right: 70px; " type="button"  class="btn btn-warning" value="Sign up"  style="font-size: 20px; font-family: 'Cookie', cursive;">
+                            <input style="float: right; margin-bottom: 20px; margin-right: 70px; " type="submit"  class="btn btn-warning" value="Sign up"  style="font-size: 20px; font-family: 'Cookie', cursive;">
                         </form>
                     </span>
                 </div>
