@@ -1,5 +1,35 @@
-<form method="post" action="/users">
-  <input type="email" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign up</title>
+<link href="https://bootswatch.com/4/cosmo/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="<%= url('/style_sign_up.css') %>" rel="stylesheet" type="text/css" >
+</head>
+<body>
+<div class="col-md-5 mx-auto">
+    <div id="main-card" >
+      <div class="card text-white bg-primary mb-3" style="max-width: 40rem; border-radius: 25px;">
+        <div class="card-header">
+          Bookmark Manager
+        </div>
+        <div class="card-body">
+          <h4 class="card-title">
+            Join Bookmark Manager
+          </h4>
+          <h2>
+          <%= flash[:notice] %>          
+          </h2>
+          <div id="sign-up-button">
+            <form method="post" action="/users">
+              <input type="email" name="email" placeholder="Email">
+              <input type="password" name="password" placeholder="Password">
+              <input type="submit" value="Submit" class="btn btn-warning">
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
