@@ -1,5 +1,4 @@
 
-
 body{
     background-color: black;
     background-repeat: no-repeat;
@@ -41,7 +40,7 @@ span{
 #email{
     font-size: 20px;
      font-family: 'Cookie';
-     font_style: cursive;    
+     font-style: cursive;    
 }
 
 #password{
@@ -56,5 +55,6 @@ span{
     font-style: cursive;
     margin-top: 7px;
 }
+
 
 @import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
