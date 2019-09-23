@@ -9,26 +9,22 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Bookmarks</title>
     </head>
-    <body style="background-color: black;
-    background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 250px;
-     ">
-        <div class="col-md-5 card mx-auto" style="border-radius: 5px; opacity: 0.91;">
-            <div style="text-align: center;">
-                <h3 class="card-header" style="font-size: 30px;  font-family: 'Cookie', cursive;">Bookmark Manager</h3>
+    <body style="background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);">
+        <div class="col-md-5 card mx-auto" id="col-md-5" >
+            <div class="card-container">
+                <h3>Bookmark Manager</h3>
                 <div class="card-body">
-                    <h1 style="font-size: 40px; font-family: 'Cookie', cursive;">Your Bookmarks</h1>
+                <br>
+                    <h1> Your Bookmarks </h1>
                     <br>
 
 
-
                     <% if @user %>
-                      <h1 style="font-size: 30px;  font-family: 'Cookie', cursive;">Welcome, <%= @user.email %></h1>
+                      <h1> Welcome, <%= @user.email %></h1>
                       <form action="/bookmarks/new" method="get"> 
                         <input type="submit" value="Add Bookmark" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
                       </form>
+                      <br>
                       <form action="/sessions/destroy" method="post">
                         <input type="submit" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
                       </form>
@@ -84,13 +80,10 @@
                       <%end %>
                     <%end%>
                       </ul>
-                      <h2 style="font-size: 30px;  font-family: 'Cookie', cursive;" >
+                      <h2>
                         <%= flash[:notice] %>
                       </h2>
                     
-
-
-
 
                 </div>
             </div>
