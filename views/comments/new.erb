@@ -1,4 +1,35 @@
-<form action="/bookmarks/<%= @bookmark_id %>/comments" method="POST">
-  <input name="comment" type="text" />
-  <input value="Submit" type="submit" />
-</form>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+        <link href="<%= url('/style_comments_new.css') %>" rel="stylesheet" type="text/css" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Add comment</title>
+    </head>
+    <body style="background-color: black;
+    background-image: url(https://brokeassstuart-9uzlt3u.netdna-ssl.com/wp-content/pictsnShit/2013/04/bookmark-wallpaper.jpg?fbclid=IwAR3qksDvjy5w9erKWj69rHincMExY3QCE4J8bC_k90qtKhUFncW_MBQpHDk);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 250px;
+     ">
+        <div class="col-md-5 card mx-auto" style="border-radius: 5px; opacity: 0.91;">
+            <div style="text-align: center;">
+                <h3 class="card-header" style="font-size: 30px;  font-family: 'Cookie', cursive;">Bookmark Manager</h3>
+                <div class="card-body">
+                    <h1 style="font-size: 40px; font-family: 'Cookie', cursive;">Write a comment</h1>
+                    <h2 style="font-size: 20px; font-family: 'Cookie', cursive;" ><%= flash[:notice] %></h2>
+                    <br>
+                    <span style="display: inline;">
+                      <form action="/bookmarks/<%= @bookmark_id %>/comments" method="POST" >
+                        <input name="comment" type="text" placeholder="Comment" style="font-size: 25px; font-family: 'Cookie', cursive;" />
+                        <input type="submit" value="Submit" class="btn btn-warning" style="font-size: 20px; font-family: 'Cookie', cursive; margin-bottom: 2px; margin-top: 2px;" />
+                      </form>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
