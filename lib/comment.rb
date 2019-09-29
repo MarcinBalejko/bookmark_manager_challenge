@@ -33,7 +33,6 @@ class Comment
     end
   end
 
-
   def self.all
     comments = DatabaseConnection.query('SELECT * FROM comments;')
     comments.map do |comment|

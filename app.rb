@@ -32,20 +32,15 @@ class BookmarkManager < Sinatra::Base
     redirect '/bookmarks'
   end
 
-
-
-
   delete '/bookmarks/:id' do
     Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
 
-  delete '/bookmarks/:id/comments' do     #??
+  delete '/bookmarks/:id/comments' do
     Comment.delete(bookmark_id: params[:id])
     redirect '/bookmarks'
   end
-
-
 
   get '/bookmarks/:id/edit' do
     @bookmark = Bookmark.find(id: params[:id])
@@ -53,7 +48,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   patch '/bookmarks/:id' do
-    Bookmark.update(id: params[:id], title: params[:title], url: params[:url], owner_id: session[:user_id])  #risky change here, not sure
+    Bookmark.update(id: params[:id], title: params[:title], url: params[:url], owner_id: session[:user_id])
     redirect('/bookmarks')
   end
 
@@ -108,7 +103,6 @@ class BookmarkManager < Sinatra::Base
     #flash[:notice] = 'You have signed out.'
     redirect('/')
   end
-
 
 
   run! if app_file == $0

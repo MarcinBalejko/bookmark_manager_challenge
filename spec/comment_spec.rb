@@ -17,6 +17,7 @@ describe Comment do
       expect(comment.bookmark_id).to eq bookmark.id
     end
   end
+
   describe '.where' do
     it 'gets the relevant comments from the databse' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
@@ -34,8 +35,6 @@ describe Comment do
     end
   end
 
-
-
   describe '.all' do
     it 'returns a list of comments' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
@@ -51,9 +50,8 @@ describe Comment do
     end
   end
 
-    describe '.delete' do
+  describe '.delete' do
     it 'deletes the given comment' do
-
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
       comment_1 = Comment.create(text: 'This is a test comment_1', bookmark_id: bookmark.id)
       comment_2 = Comment.create(text: 'This is a test comment_2', bookmark_id: bookmark.id)
