@@ -18,8 +18,8 @@ class Comment
     )
   end
 
-  def self.delete(bookmark_id:)
-    DatabaseConnection.query("DELETE FROM comments WHERE id = #{bookmark_id}")
+  def self.delete(id:)
+    DatabaseConnection.query("DELETE FROM comments WHERE id = #{id}")
   end
 
   def self.where(bookmark_id:)

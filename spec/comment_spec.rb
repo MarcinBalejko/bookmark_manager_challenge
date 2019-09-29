@@ -34,16 +34,7 @@ describe Comment do
     end
   end
 
-  #describe '.delete' do
-    #it 'deletes the given comment' do
 
-     # bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
-      #comment = Comment.create(text: 'This is a test comment', bookmark_id: bookmark.id)
-
-      #Comment.delete(bookmark_id: bookmark.id)
-      #expect(Comment.where(comment.bookmark_id)).not_to eq(bookmark.id)
-    #end
-  #end
 
   describe '.all' do
     it 'returns a list of comments' do
@@ -57,6 +48,18 @@ describe Comment do
       expect(comments.first).to be_a Comment
       expect(comments.first.text).to eq 'This is a test comment_1'
       
+    end
+  end
+
+    describe '.delete' do
+    it 'deletes the given comment' do
+
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
+      comment_1 = Comment.create(text: 'This is a test comment_1', bookmark_id: bookmark.id)
+      comment_2 = Comment.create(text: 'This is a test comment_2', bookmark_id: bookmark.id)
+
+      Comment.delete(id: comment_1.id)
+      expect(Comment.all.length).to eq(1)
     end
   end
 
