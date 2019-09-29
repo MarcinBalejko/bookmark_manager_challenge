@@ -18,9 +18,25 @@ class Comment
     )
   end
 
+  def self.delete(bookmark_id:)
+    DatabaseConnection.query("DELETE FROM comments WHERE id = #{bookmark_id}")
+  end
+
   def self.where(bookmark_id:)
     result = DatabaseConnection.query("SELECT * FROM comments WHERE bookmark_id = #{bookmark_id};")
     result.map do |comment|
+      Comment.new(
+        id: comment['id'],
+        text: comment['text'],
+        bookmark_id: comment['bookmark_id']
+      )
+    end
+  end
+
+
+  def self.all
+    comments = DatabaseConnection.query('SELECT * FROM comments;')
+    comments.map do |comment|
       Comment.new(
         id: comment['id'],
         text: comment['text'],
