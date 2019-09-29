@@ -89,15 +89,8 @@ The below diagram indicates that:
 
 - The PostgreSQL database management system must be installed on your system.
 
-### To set up the project
 
-Clone this repository and then run:
-
-```
-bundle
-```
-
-## Getting Started
+## To set up the project
 
 > If you clone this app, you will have a ready-to-go application with RSpec, Sinatra, and Capybara installed.
 
