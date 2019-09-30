@@ -24,10 +24,7 @@ class Tag
   def self.all
     tags = DatabaseConnection.query('SELECT * FROM tags;')
     tags.map do |tag|
-      Tag.new(
-        id: tag['id'],
-        content: tag['content']
-      )
+      Tag.new(id: tag['id'], content: tag['content'])
     end
   end
 
