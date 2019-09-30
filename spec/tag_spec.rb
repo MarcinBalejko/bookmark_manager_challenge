@@ -1,7 +1,6 @@
 require 'tag'
 require 'bookmark'
 require 'database_helpers'
-require 'bookmark_tag'
 
 describe Tag do
   let(:user) { User.create(email: 'user@gmail.com', password: 'testpassword') }
@@ -52,10 +51,10 @@ describe Tag do
   end
 
   describe '.delete' do
-    it 'deletes the given comment' do
+    it 'deletes the given tag' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
-      tag1 = Tag.create(content: 'test tag 1')
-      tag2 = Tag.create(content: 'test tag 2')
+      tag1 = Tag.create(content: 'test tag_1')
+      tag2 = Tag.create(content: 'test tag_2')
       BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
       BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
 
