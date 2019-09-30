@@ -45,8 +45,7 @@ describe Comment do
       
       expect(comments.length).to eq 2
       expect(comments.first).to be_a Comment
-      expect(comments.first.text).to eq 'This is a test comment_1'
-      
+      expect(comments.first.text).to eq 'This is a test comment_1'   
     end
   end
 

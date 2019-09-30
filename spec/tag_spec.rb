@@ -34,5 +34,21 @@ describe Tag do
       expect(tag.content).to eq tag1.content
     end
   end
+
+  describe '.all' do
+    it 'returns a list of tags' do
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
+      tag1 = Tag.create(content: 'test tag 1')
+      tag2 = Tag.create(content: 'test tag 2')
+      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
+      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
+
+      tags = Tag.all
+      
+      expect(tags.length).to eq 2
+      expect(tags.first).to be_a Tag
+      expect(tags.first.content).to eq 'test tag 1'   
+    end
+  end
   
 end
