@@ -50,5 +50,18 @@ describe Tag do
       expect(tags.first.content).to eq 'test tag 1'   
     end
   end
+
+  describe '.delete' do
+    it 'deletes the given comment' do
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
+      tag1 = Tag.create(content: 'test tag 1')
+      tag2 = Tag.create(content: 'test tag 2')
+      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
+      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
+
+      Tag.delete(id: tag1.id)
+      expect(Tag.all.length).to eq(1)
+    end
+  end
   
 end

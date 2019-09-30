@@ -1,5 +1,6 @@
 require_relative './database_connection'
 require_relative './bookmark'
+require_relative './bookmark_tag'
 
 class Tag
   attr_reader :id, :content
@@ -29,6 +30,12 @@ class Tag
         content: tag['content']
       )
     end
+  end
+
+  def self.delete(id:)
+    
+    DatabaseConnection.query("DELETE FROM bookmarks_tags WHERE tag_id = #{id}")    #########
+    DatabaseConnection.query("DELETE FROM tags WHERE id = #{id}")
   end
   
 end
