@@ -56,12 +56,20 @@
                               <h2>Comments</h2>
                               <ul>
                                 <% bookmark.comments.each do |comment| %>
-                                  <li><%= comment.text %></li>
+                                <span>
+                                  <li>
+                                  
 
                                   <form action="/bookmarks/<%= comment.id %>/comments" method="post">
+                                    <%= comment.text %>
                                     <input type='hidden' name='_method' value='DELETE' />
                                     <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
                                   </form>
+
+                                  </li>
+                                  <span>
+
+                                  
 
                                 <% end %>
                               </ul>
@@ -73,15 +81,17 @@
                               <ul>
                                 <% bookmark.tags.each do |tag| %>
                                   <li>
+                                    
+                                  <form action="/bookmarks/<%= tag.id %>/tags" method="post">
                                     <a href="/tags/<%= tag.id %>/bookmarks">
                                       <%= tag.content %>
                                     </a>
-                                  </li>
-
-                                  <form action="/bookmarks/<%= tag.id %>/tags" method="post">
                                     <input type='hidden' name='_method' value='DELETE' />
                                     <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
                                   </form>
+                                  </li>
+
+                                  
 
 
 
