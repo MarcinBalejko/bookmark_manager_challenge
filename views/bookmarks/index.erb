@@ -27,6 +27,7 @@
 
             <% if @bookmarks != nil %>
                 <% @bookmarks.each do |bookmark| %>
+                <% if bookmark.owner_id == @user.id%>
                 <div class="card-body">
                     <div id="small-card" class="col-md-10 card mx-auto">
                         <br>
@@ -54,6 +55,7 @@
                                 <span>
                             <% end %>
                             <%end%>
+                            
                         </ul>
                         </li>
 
@@ -127,6 +129,7 @@
                         </div>
                         <%end%>
                         <%end%>
+                    <%end%>
 
                         
                         <div class="card-footer text-muted">
@@ -142,3 +145,6 @@
         </div>
     </body>
 </html>
+
+
+
