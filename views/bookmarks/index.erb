@@ -1,85 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
-        <link href="<%= url('/style_index_bookmarks.css') %>" rel="stylesheet" type="text/css" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
+        <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" >
+        <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
         <title>Bookmarks</title>
     </head>
-    <body style="background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);">
-        <div class="col-md-5 card mx-auto" id="col-md-5" >
-            <div class="card-container">
-                <h3>Bookmark Manager</h3>
+    <body>
+        <div id="big-card" class="col-md-6 card mx-auto" style="margin-top: 20vh;">
+            <br>
+            <h3 id="your-bookmarks" class="card-header">
+                Your Bookmarks
+            </h3>
+
+            <form action="/bookmarks/new" method="get"> 
+                <input type="submit" value="Add Bookmark" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
+            </form>
+              <br>
+            <form action="/sessions/destroy" method="post">
+                <input type="submit" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
+            </form>
+
+
+            <% if @bookmarks != nil %>
+                <% @bookmarks.each do |bookmark| %>
                 <div class="card-body">
-                <br>
-                    <h1> Your Bookmarks </h1>
-                    <br>
+                    <div id="small-card" class="col-md-10 card mx-auto">
+                        <br>
+                        <h3 class="card-header"><%= bookmark.title %></h3>
 
 
-                    <% if @user %>
-                      <h1> Welcome, <%= @user.email %></h1>
-                      <form action="/bookmarks/new" method="get"> 
-                        <input type="submit" value="Add Bookmark" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
-                      </form>
-                      <br>
-                      <form action="/sessions/destroy" method="post">
-                        <input type="submit" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
-                      </form>
-                    <% end %>
-                    <ul>
+                        <ul class="list-group list-group-flush">
 
-                    <% if @bookmarks != nil %>
-                      <% @bookmarks.each do |bookmark| %>
-                        <% if bookmark.owner_id == @user.id%>
-                        <li class="bookmark" id="bookmark-<%= bookmark.id %>" style="font-size: 30px;  font-family: 'Cookie', cursive;">
-                          <a href="<%= bookmark.url %>" target="_blank">
-                            <%= bookmark.title %>
-                          </a>
-                          <form action="/bookmarks/<%= bookmark.id %>" method="post">
-                            <input type='hidden' name='_method' value='DELETE' />
-                            <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
-                          </form>
-                          <form action="/bookmarks/<%= bookmark.id %>/edit" method="get">
-                            <input type="submit" value="Edit" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
-                          </form>
-                          <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
-                            <input type="submit" value="Add Comment" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
-                          </form>
-                          <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
-                            <input type="submit" value="Add Tag" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
-                          </form>
-                          <% if bookmark.comments.length > 0 %>
+                            <li class="list-group-item" >
+                            Comments:
+                            
+
+                            <% if bookmark.comments.length > 0 %>
                             <div>
-                              <h2>Comments</h2>
                               <ul>
                                 <% bookmark.comments.each do |comment| %>
                                 <span>
-                                  <li>
-                                  
-
-                                  <form action="/bookmarks/<%= comment.id %>/comments" method="post">
-                                    <%= comment.text %>
-                                    <input type='hidden' name='_method' value='DELETE' />
-                                    <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
-                                  </form>
-
+                                  <li>   
+                                    <form action="/bookmarks/<%= comment.id %>/comments" method="post">
+                                      <%= comment.text %>
+                                      <input type='hidden' name='_method' value='DELETE' />
+                                      <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                                    </form>
                                   </li>
-                                  <span>
+                                <span>
+                            <% end %>
+                            <%end%>
+                        </ul>
+                        </li>
 
-                                  
+                        
+                        <ul class="list-group list-group-flush">
 
-                                <% end %>
-                              </ul>
-                            </div>
-                          <% end %>
-                          <% if bookmark.tags.length > 0 %>
+                            <li class="list-group-item" style="border-top: 1px solid rgba(0,0,0,0.6);">
+                            Tags:
+                            
+
+                            <% if bookmark.tags.length > 0 %>
                             <div>
-                              <h2>Tags</h2>
                               <ul>
                                 <% bookmark.tags.each do |tag| %>
+                                <span>
                                   <li>
                                     
                                   <form action="/bookmarks/<%= tag.id %>/tags" method="post">
@@ -89,29 +78,67 @@
                                     <input type='hidden' name='_method' value='DELETE' />
                                     <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
                                   </form>
+
                                   </li>
-
-                                  
-
-
-
-
-                                <% end %>
-                              </ul>
-                            </div>
-                          <% end %>
+                                <span>
+                            <% end %>
+                            <%end%>
+                        </ul>
+                        </ul>
                         </li>
-                      <% end %>
-                      <%end %>
-                    <%end%>
-                      </ul>
-                      <h2>
-                        <%= flash[:notice] %>
-                      </h2>
-                    
 
+
+
+                        <div id="buttons" class="card-body">
+
+
+                          <span>
+                            <a href="#" class="card-link">
+                              <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
+                                <input type="submit" value="Tag" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                              </form>
+                            </a>
+
+
+                            <a  href="#" class="card-link">
+                              <form action="/bookmarks/<%= bookmark.id %>/edit" method="get">
+                                <input type="submit" value="Edit" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                              </form>
+                            </a>
+
+
+                            <a  href="#" class="card-link">
+                              <form action="/bookmarks/<%= bookmark.id %>" method="post">
+                                <input type='hidden' name='_method' value='DELETE' />
+                                <input type="submit" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                              </form>
+                            </a>
+
+
+                            <a  href="#" class="card-link">
+                              <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
+                                <input type="submit" value="Comment" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                              </form>
+                            </a>
+
+                          <span>
+
+
+                        </div>
+                        <%end%>
+                        <%end%>
+
+                        
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                        <br>
+                    </div>
                 </div>
-            </div>
+                <div id="footer" class="card-footer text-muted">
+                    <span>Created by ~ </span><span> Marcin Balejko &copy;</span> 
+                </div>
+            <br>
         </div>
     </body>
 </html>

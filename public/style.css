@@ -1,0 +1,46 @@
+body{
+    background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 115vh;
+    padding: 40px; 
+    font-family: 'Cookie';
+}
+
+#big-card{
+    overflow: scroll;
+    opacity: 0.95;
+}
+
+#your-bookmarks{
+    text-align: center;
+}
+
+#small-card{
+    box-shadow: 5px 10px rgba(26, 25, 25, 0.801);
+}
+
+#buttons{
+    text-align: center;
+    font-size: 25px;
+}
+
+#footer{
+    text-align: center;
+    font-size: 25px;
+}
+
+form{
+    margin: 0%;
+    max-width: 50px;
+    display: inline;
+}
+
+span{
+    text-align: center;
+    display: inline;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
