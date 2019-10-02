@@ -24,11 +24,12 @@
                 <input type="submit" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
             </form>
 
-
+            <div class="card-body">
+            <div id="small-card" class="col-md-10 card mx-auto">
             <% if @bookmarks != nil %>
                 <% @bookmarks.each do |bookmark| %>
                 <% if bookmark.owner_id == @user.id%>
-                <div class="card-body">
+                    <br>
                     <div id="small-card" class="col-md-10 card mx-auto">
                         <br>
                         <h3 class="card-header"><%= bookmark.title %></h3>
@@ -59,7 +60,7 @@
      
                         <ul class="list-group list-group-flush">
 
-                            <li class="list-group-item" style="border-top: 1px solid rgba(0,0,0,0.6);">
+                            <li class="list-group-item" style="border-top: 1px solid rgba(0,0,0,0.6); border-bottom: 1px solid rgba(0,0,0,0.6)">
                             Tags:
                             
                             <% if bookmark.tags.length > 0 %>
@@ -116,14 +117,23 @@
                           <span>
 
                         </div>
+
+                      <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                        <br>
+
+                      </div>
+                      <br>
+
+
+
                         <%end%>
                         <%end%>
                     <%end%>
 
                         
-                        <div class="card-footer text-muted">
-                            2 days ago
-                        </div>
+                        
                         <br>
                     </div>
                 </div>
