@@ -60,10 +60,9 @@ class Bookmark
     tag_class.where(bookmark_id: id)
   end
 
-
+  
   private
 
-  
   def self.is_url?(url)
     url =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]
   end

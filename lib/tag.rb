@@ -33,7 +33,7 @@ class Tag
     DatabaseConnection.query("DELETE FROM tags WHERE id = #{id}")
   end
 
-  def self.delete_with_bookmark(id:)  #?
+  def self.delete_with_bookmark(id:)
     DatabaseConnection.query("DELETE FROM tags WHERE bookmark_id = #{id}")
   end
   

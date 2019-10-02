@@ -33,13 +33,11 @@
                         <br>
                         <h3 class="card-header"><%= bookmark.title %></h3>
 
-
                         <ul class="list-group list-group-flush">
 
                             <li class="list-group-item" >
                             Comments:
                             
-
                             <% if bookmark.comments.length > 0 %>
                             <div>
                               <ul>
@@ -58,14 +56,12 @@
                             
                         </ul>
                         </li>
-
-                        
+     
                         <ul class="list-group list-group-flush">
 
                             <li class="list-group-item" style="border-top: 1px solid rgba(0,0,0,0.6);">
                             Tags:
                             
-
                             <% if bookmark.tags.length > 0 %>
                             <div>
                               <ul>
@@ -89,10 +85,7 @@
                         </ul>
                         </li>
 
-
-
                         <div id="buttons" class="card-body">
-
 
                           <span>
                             <a href="#" class="card-link">
@@ -101,13 +94,11 @@
                               </form>
                             </a>
 
-
                             <a  href="#" class="card-link">
                               <form action="/bookmarks/<%= bookmark.id %>/edit" method="get">
                                 <input type="submit" value="Edit" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
                               </form>
                             </a>
-
 
                             <a  href="#" class="card-link">
                               <form action="/bookmarks/<%= bookmark.id %>" method="post">
@@ -116,7 +107,6 @@
                               </form>
                             </a>
 
-
                             <a  href="#" class="card-link">
                               <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
                                 <input type="submit" value="Comment" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
@@ -124,7 +114,6 @@
                             </a>
 
                           <span>
-
 
                         </div>
                         <%end%>

@@ -32,8 +32,6 @@ class BookmarkManager < Sinatra::Base
   end
 
   delete '/bookmarks/:id' do
-    
-    
     Tag.delete_with_bookmark(id: params[:id]) 
     Comment.delete_with_bookmark(id: params[:id])
     Bookmark.delete(id: params[:id])
