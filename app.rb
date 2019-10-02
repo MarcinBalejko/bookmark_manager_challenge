@@ -5,7 +5,6 @@ require_relative './lib/bookmark'
 require_relative './database_connection_setup.rb'
 require_relative './lib/comment'
 require_relative './lib/tag'
-require_relative './lib/bookmark_tag'
 require_relative './lib/user'
 require_relative './database_connection_setup'
 
@@ -33,6 +32,10 @@ class BookmarkManager < Sinatra::Base
   end
 
   delete '/bookmarks/:id' do
+    
+    
+    Tag.delete_with_bookmark(id: params[:id]) 
+    Comment.delete_with_bookmark(id: params[:id])
     Bookmark.delete(id: params[:id])
     redirect '/bookmarks'
   end
@@ -73,8 +76,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks/:id/tags' do
-    tag = Tag.create(content: params[:tag])
-    BookmarkTag.create(bookmark_id: params[:id], tag_id: tag.id)
+    Tag.create(bookmark_id: params[:id], content: params[:tag])       #
     redirect '/bookmarks'
   end
 
