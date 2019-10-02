@@ -16,11 +16,11 @@ class Comment
   end
 
   def self.delete(id:)
-    DatabaseConnection.query("DELETE FROM comments WHERE id = #{id}")   # zmienione z id
+    DatabaseConnection.query("DELETE FROM comments WHERE id = #{id}")
   end
 
   def self.delete_with_bookmark(id:)
-    DatabaseConnection.query("DELETE FROM comments WHERE bookmark_id = #{id}")   # ?
+    DatabaseConnection.query("DELETE FROM comments WHERE bookmark_id = #{id}")
   end
 
   def self.where(bookmark_id:)

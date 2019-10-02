@@ -21,6 +21,11 @@ body{
     box-shadow: 5px 10px rgba(26, 25, 25, 0.801);
 }
 
+#list-group-item-tags{
+    border-top: 1px solid rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
 #buttons{
     text-align: center;
     font-size: 25px;
