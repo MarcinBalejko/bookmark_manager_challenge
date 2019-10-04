@@ -4,7 +4,7 @@ task :setup_test_database do
   #p "Cleaning database..."
   connection = PG.connect(dbname: 'bookmark_manager_test')
 
-  connection.exec("TRUNCATE bookmarks, comments, tags, bookmarks_tags, users;")
+  connection.exec("TRUNCATE bookmarks, comments, tags, users;")
   
 end
 

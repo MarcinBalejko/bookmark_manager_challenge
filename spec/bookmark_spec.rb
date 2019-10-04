@@ -1,7 +1,6 @@
 require 'bookmark'
 require 'database_helpers'
 require 'tag'
-require 'bookmark_tag'
 require 'user'
 
 describe Bookmark do
