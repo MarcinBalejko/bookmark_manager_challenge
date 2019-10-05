@@ -7,7 +7,6 @@ feature 'Adding a new bookmark' do
   end
   scenario 'The bookmark must be a valid URL' do
     sign_up
-    #adding an incorrect bookmark stage
     click_button('Add Bookmark')
     fill_in('title', with: 'not a real bookmark')
     fill_in('url', with: 'not a real bookmark')

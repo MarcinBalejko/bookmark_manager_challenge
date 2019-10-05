@@ -103,6 +103,5 @@ describe Bookmark do
       bookmark.tags(tag_class)
     end
   end
-  
 end
   
