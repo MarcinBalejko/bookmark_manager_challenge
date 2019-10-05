@@ -15,6 +15,7 @@
         <h3 id="your-bookmarks" class="card-header">
           Your Bookmarks
         </h3>
+        <span>
         <form action="/bookmarks/new" method="get"> 
           <input type="submit" class="submitLink" value="Add Bookmark" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
         </form>
@@ -22,6 +23,7 @@
         <form action="/sessions/destroy" method="post">
           <input type="submit" class="submitLink" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
         </form>
+        </span>
         <div class="card-body">
           <% if @bookmarks != nil %>
             <% @bookmarks.each do |bookmark| %>
