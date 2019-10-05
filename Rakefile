@@ -1,4 +1,7 @@
 require 'pg'
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+require './app'
 
 task :setup_test_database do
   #p "Cleaning database..."

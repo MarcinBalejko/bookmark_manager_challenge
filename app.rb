@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'uri'
+require "sinatra"
+require 'sinatra/activerecord'
 require_relative './lib/bookmark'
 require_relative './database_connection_setup.rb'
 require_relative './lib/comment'
