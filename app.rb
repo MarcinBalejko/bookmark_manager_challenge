@@ -1,8 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'uri'
-require "sinatra"
-require 'sinatra/activerecord'
 require_relative './lib/bookmark'
 require_relative './database_connection_setup.rb'
 require_relative './lib/comment'
@@ -110,6 +108,7 @@ class BookmarkManager < Sinatra::Base
     #flash[:notice] = 'You have signed out.'
     redirect('/')
   end
+
 
   run! if app_file == $0
 end

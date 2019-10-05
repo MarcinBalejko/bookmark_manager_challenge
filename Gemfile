@@ -25,5 +25,3 @@ gem 'selenium-webdriver'
 gem 'simplecov'
 
 gem 'rake'
-
-gem 'sinatra-activerecord'
