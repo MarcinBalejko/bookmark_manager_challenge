@@ -8,12 +8,22 @@ body{
     font-family: 'Cookie';
 }
 
-#big-card{
+.submitLink {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+}
+
+.big-card{
     overflow: scroll;
-    opacity: 0.95;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 20vh;
 }
 
 #your-bookmarks{
+    text-align: center;
+}
+#header-title{
     text-align: center;
 }
 
@@ -24,6 +34,13 @@ body{
 #list-group-item-tags{
     border-top: 1px solid rgba(0,0,0,0.6);
     border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+.comment-style{
+    list-style-type: none;
+}
+.comment-position{
+    text-align: left;
 }
 
 #buttons{
