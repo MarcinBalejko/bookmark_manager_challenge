@@ -104,3 +104,21 @@ rspec
 ```
 
 This will give you the application, and set up two databases: `bookmark_manager` for the development environment, and `bookmark_manager_test` for the test environment.
+
+-----
+
+|   Project    |   Description    |
+|:------------:|:----------------:|
+|User enters the main page for registration| ![signin](public/images/1.png)|
+|Signing in| ![signin](public/images/2.png)|
+|Users can add their bookmarks| ![signin](public/images/3.png)|
+|Each bookmark has it's own url and title| ![signin](public/images/5.png)|
+|User's bookmarks appear on the board| ![signin](public/images/6.png)|
+|User's bookmarks can be commented by their author| ![signin](public/images/7.png)|
+|Comments have their own section on each bookmark| ![signin](public/images/8.png)|
+|User can also tag the bookmarks| ![signin](public/images/9.png)|
+|User can also tag the bookmarks| ![signin](public/images/10.png)|
+|Tags have their own section right below the comments| ![signin](public/images/11.png)|
+|User can add multiple bookmarks and also delete each of them| ![signin](public/images/12.png)|
+
+-----
