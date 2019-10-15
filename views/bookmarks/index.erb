@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
-    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" >
+    <link href="<%= url('/style_index.css') %>" rel="stylesheet" type="text/css" >
     <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
     <title>Bookmarks</title>
   </head>
@@ -17,11 +17,11 @@
         </h3>
         <span>
         <form action="/bookmarks/new" method="get"> 
-          <input type="submit" class="submitLink" value="Add Bookmark" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
+          <input type="submit" class="submitLink" value="Add Bookmark" id="add-bookmark-sign-out" />
         </form>
         <br>
         <form action="/sessions/destroy" method="post">
-          <input type="submit" class="submitLink" value="Sign out" style="font-size: 30px;  font-family: 'Cookie', cursive;" />
+          <input type="submit" class="submitLink" value="Sign out" id="add-bookmark-sign-out"  />
         </form>
         </span>
         <div class="card-body">
@@ -43,7 +43,7 @@
                               <form action="/bookmarks/<%= comment.id %>/comments" method="post">
                                 <%= comment.text %>
                                 <input type='hidden' name='_method' value='DELETE' />
-                                <input type="submit" class="submitLink" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                                <input type="submit" class="submitLink" value="Delete" id="tag-edit-delete-comment-fill-in"  />
                               </form>
                             </li>
                           </span>
@@ -64,7 +64,7 @@
                                     <%= tag.content %>
                                   </a>
                                   <input type='hidden' name='_method' value='DELETE' />
-                                  <input type="submit" class="submitLink" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                                  <input type="submit" class="submitLink" value="Delete" id="tag-edit-delete-comment-fill-in" />
                                 </form>
                               </li>
                             </span>
@@ -78,23 +78,23 @@
                     <span>
                       <a href="#" class="card-link">
                         <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
-                          <input type="submit" class="submitLink" value="Tag" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                          <input type="submit" class="submitLink" value="Tag" id="tag-edit-delete-comment-fill-in"  />
                         </form>
                       </a>
                       <a  href="#" class="card-link">
                         <form action="/bookmarks/<%= bookmark.id %>/edit" method="get">
-                          <input type="submit" class="submitLink" value="Edit" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                          <input type="submit" class="submitLink" value="Edit" id="tag-edit-delete-comment-fill-in"  />
                         </form>
                       </a>
                       <a  href="#" class="card-link">
                         <form action="/bookmarks/<%= bookmark.id %>" method="post">
                           <input type='hidden' name='_method' value='DELETE' />
-                          <input type="submit" class="submitLink" value="Delete" style="font-size: 20px;  font-family: 'Cookie', cursive;" />
+                          <input type="submit" class="submitLink" value="Delete" id="tag-edit-delete-comment-fill-in"  />
                         </form>
                       </a>
                       <a href="#" class="card-link">
                         <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
-                          <input type="submit" class="submitLink" value="Comment" style="font-size: 20px; font-family: 'Cookie', cursive;"/>
+                          <input type="submit" class="submitLink" value="Comment" id="tag-edit-delete-comment-fill-in" />
                         </form>
                       </a>
                     <span>

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
-        <link href="<%= url('/style_tag_new.css') %>" rel="stylesheet" type="text/css" >
+        <link href="<%= url('/style_all.css') %>" rel="stylesheet" type="text/css" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Add tag</title>
@@ -21,7 +21,7 @@
                     <span>
                       <form action="/bookmarks/<%= @bookmark_id %>/tags" method="POST" >
                         <input name="tag" type="text" placeholder="Tag" id="tag" />
-                        <input type="submit" value="Submit" class="btn btn-warning" id="submit" />
+                        <input type="submit" value="Submit" class="btn btn-warning" id="submit-tag" />
                       </form>
                     </span>
                 </div>

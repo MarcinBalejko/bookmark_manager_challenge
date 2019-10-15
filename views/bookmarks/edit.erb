@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
-        <link href="<%= url('/style_bookmarks_edit.css') %>" rel="stylesheet" type="text/css" >
+        <link href="<%= url('/style_all.css') %>" rel="stylesheet" type="text/css" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>New Bookmark</title>
@@ -21,9 +21,9 @@
                     <span>
                       <form action="/bookmarks/<%= @bookmark.id %>" method="post" >
                         <input type="hidden" name="_method" value="PATCH" />
-                        <input type="text" name="url" value="<%= @bookmark.url %>" id="url" style="font-size: 20px; font-family: 'Cookie', cursive;" />
-                        <input type="text" name="title" value="<%= @bookmark.title %>" id="title" style="font-size: 20px; font-family: 'Cookie', cursive;" />
-                        <input type="submit" value="Submit" class="btn btn-warning" id="submit" style="font-size: 20px; font-family: 'Cookie', cursive; margin-top: 7px;" />
+                        <input type="text" name="url" value="<%= @bookmark.url %>" id="tag-edit-delete-comment-fill-in" />
+                        <input type="text" name="title" value="<%= @bookmark.title %>" id="tag-edit-delete-comment-fill-in" />
+                        <input type="submit" value="Submit" class="btn btn-warning" id="submit" />
                       </form>
                     </span>
                 </div>
