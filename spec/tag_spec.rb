@@ -6,7 +6,8 @@ describe Tag do
   let(:user) { User.create(email: 'user@gmail.com', password: 'testpassword') }
   describe '.create' do
     it 'creates a new Tag object' do
-      tag = Tag.create(content: 'test tag')
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
+      tag = Tag.create(bookmark_id: bookmark.id, content: 'test tag')
 
       persisted_data = persisted_data(id: tag.id, table: 'tags')
 
@@ -19,10 +20,8 @@ describe Tag do
   describe '.where' do
     it 'returns tags linked to the given bookmark id' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
-      tag1 = Tag.create(content: 'test tag 1')
-      tag2 = Tag.create(content: 'test tag 2')
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
+      tag1 = Tag.create(bookmark_id: bookmark.id, content: 'test tag 1')
+      tag2 = Tag.create(bookmark_id: bookmark.id, content: 'test tag 2')
 
       tags = Tag.where(bookmark_id: bookmark.id)
       tag = tags.first
@@ -37,10 +36,8 @@ describe Tag do
   describe '.all' do
     it 'returns a list of tags' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
-      tag1 = Tag.create(content: 'test tag 1')
-      tag2 = Tag.create(content: 'test tag 2')
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
+      tag1 = Tag.create(bookmark_id: bookmark.id, content: 'test tag 1')
+      tag2 = Tag.create(bookmark_id: bookmark.id, content: 'test tag 2')
 
       tags = Tag.all
       
@@ -53,10 +50,8 @@ describe Tag do
   describe '.delete' do
     it 'deletes the given tag' do
       bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy", owner_id: user.id)
-      tag1 = Tag.create(content: 'test tag_1')
-      tag2 = Tag.create(content: 'test tag_2')
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag1.id)
-      BookmarkTag.create(bookmark_id: bookmark.id, tag_id: tag2.id)
+      tag1 = Tag.create(bookmark_id: bookmark.id, content: 'test tag_1')
+      tag2 = Tag.create(bookmark_id: bookmark.id, content: 'test tag_2')
 
       Tag.delete(id: tag1.id)
       expect(Tag.all.length).to eq(1)

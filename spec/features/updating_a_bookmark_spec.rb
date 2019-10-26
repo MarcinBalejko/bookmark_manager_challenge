@@ -3,7 +3,7 @@ feature 'Updating a bookmark' do
     sign_up
     add_one_bookmark
     # editing bookmark stage
-    first('.bookmark').click_button 'Edit'
+    click_button 'Edit'
     fill_in('url', with: "http://www.snakersacademy.com")
     fill_in('title', with: "Snakers Academy")
     click_button('Submit')

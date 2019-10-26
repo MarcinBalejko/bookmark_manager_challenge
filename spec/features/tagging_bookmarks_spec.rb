@@ -4,12 +4,12 @@ feature 'Adding and viewing tags' do
         sign_up
         add_one_bookmark
         # adding a tag stage
-        first('.bookmark').click_button 'Add Tag'
+        click_button 'Tag'
         fill_in 'tag', with: 'test tag'
         click_button 'Submit'
         
         expect(current_path).to eq '/bookmarks'
-        expect(first('.bookmark')).to have_content 'test tag'
+        expect(page).to have_content 'test tag'
       end
     end
   end
