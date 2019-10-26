@@ -27,6 +27,14 @@ body {
 
 #header-title {
   text-align: center;
+  color: #AAAAAA;
+  text-decoration: none;
+}
+
+.header-link {
+  text-align: center;
+  color: #AAAAAA;
+  text-decoration: none;
 }
 
 #small-card {

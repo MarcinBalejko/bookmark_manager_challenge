@@ -30,8 +30,17 @@ body{
 #your-bookmarks{
     text-align: center;
 }
+
 #header-title{
     text-align: center;
+    color: #AAAAAA;
+    text-decoration: none;
+}
+
+.header-link{
+    text-align: center;
+    color: #AAAAAA;
+    text-decoration: none;
 }
 
 #small-card{
@@ -93,6 +102,5 @@ span{
 #main-page-content-container{
     text-align: center;
 }
-
 
 @import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');

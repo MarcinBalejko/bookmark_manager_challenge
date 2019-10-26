@@ -31,7 +31,11 @@
               <br>
               <div id="small-card" class="col-md-10 card mx-auto">
                 <br>
-                <h3 id="header-title" class="card-header"><%= bookmark.title %></h3>
+                <a class="header-link" href="<%= bookmark.url %>" >
+                  <h3 id="header-title"  class="card-header">
+                    <%= bookmark.title %>
+                  </h3>
+                </a>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
                     Comments:
