@@ -1,0 +1,116 @@
+@mixin header-style($fontsize) {
+    font-size: $fontsize;
+    font-family: 'Cookie'; 
+    font-style: cursive;
+}
+@mixin font-properties($fontsize) {
+    font-size: $fontsize;
+    font-family: 'Cookie';
+    font-style: cursive;
+}
+
+
+body{
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 250px;
+}
+
+#col-md-5{
+    border-radius: 5px;
+    opacity: 0.91;
+}
+
+.card-container{
+    text-align: center;
+}
+
+h1{
+    @include header-style(40px);
+}
+
+h2{
+    @include header-style(20px); 
+}
+
+h3{
+    @include header-style(30px);
+}
+
+span{
+    display: inline;
+}
+
+#url{
+    @include font-properties(20px); 
+}
+
+#title{
+    @include font-properties(20px); 
+}
+
+#submit{
+    @include font-properties(20px); 
+    margin-top: 7px;
+}
+
+
+#comment{
+    @include font-properties(25px); 
+}
+
+#submit-comment{
+    @include font-properties(20px); 
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#left-input{
+    float: left; 
+    margin-bottom: 20px; 
+    margin-left: 70px;
+    @include font-properties(20px); 
+}
+
+#right-input{
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 70px;
+    @include font-properties(20px); 
+}
+
+#tag{
+    @include font-properties(25px); 
+}
+
+#submit-tag{
+    @include font-properties(20px); 
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+
+#submit{
+    @include font-properties(20px); 
+    margin-top: 7px;
+}
+
+#add-bookmark-sign-out{
+    @include font-properties(30px); 
+}
+
+#tag-edit-delete-comment-fill-in{
+    @include font-properties(20px); 
+}
+
+#main-page-body-style{ 
+    background-color: black;
+}
+
+#main-page-content-container{
+    text-align: center;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');

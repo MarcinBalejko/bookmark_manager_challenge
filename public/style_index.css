@@ -1,100 +1,98 @@
-
-/* style css */
-
-body{
-    background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);
-    background-position: center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 115vh;
-    padding: 40px; 
-    font-family: 'Cookie';
+@import url("https://fonts.googleapis.com/css?family=Cookie&display=swap");
+body {
+  background-image: url(https://www.artycraftykids.com/wp-content/uploads/2017/08/Bookmarks-1-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 115vh;
+  padding: 40px;
+  font-family: 'Cookie';
 }
 
 .submitLink {
-    background-color: transparent;
-    border: none;
-    color: whitesmoke;
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
 }
 
-.big-card{
-    overflow: scroll;
-    background-color: rgba(0, 0, 0, 0.7);
-    margin-top: 20vh;
+.big-card {
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: 20vh;
 }
 
-#your-bookmarks{
-    text-align: center;
-}
-#header-title{
-    text-align: center;
+#your-bookmarks {
+  text-align: center;
 }
 
-#small-card{
-    box-shadow: 5px 10px rgba(26, 25, 25, 0.801);
+#header-title {
+  text-align: center;
 }
 
-#list-group-item-tags{
-    border-top: 1px solid rgba(0,0,0,0.6);
-    border-bottom: 1px solid rgba(0,0,0,0.6);
+#small-card {
+  -webkit-box-shadow: 5px 10px rgba(26, 25, 25, 0.801);
+          box-shadow: 5px 10px rgba(26, 25, 25, 0.801);
 }
 
-.comment-style{
-    list-style-type: none;
-}
-.comment-position{
-    text-align: left;
+#list-group-item-tags {
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 }
 
-#buttons{
-    text-align: center;
-    font-size: 25px;
+.comment-style {
+  list-style-type: none;
 }
 
-#footer{
-    text-align: center;
-    font-size: 25px;
+.comment-position {
+  text-align: left;
 }
 
-form{
-    margin: 0%;
-    max-width: 50px;
-    display: inline;
+#buttons {
+  text-align: center;
+  font-size: 25px;
 }
 
-span{
-    text-align: center;
-    display: inline;
+#footer {
+  text-align: center;
+  font-size: 25px;
 }
 
+form {
+  margin: 0%;
+  max-width: 50px;
+  display: inline;
+}
+
+span {
+  text-align: center;
+  display: inline;
+}
 
 /* additional */
-#submit{
-    font-size: 20px;
-    font-family: 'Cookie';
-    font-style: cursive;
-    margin-top: 7px;
+#submit {
+  font-size: 20px;
+  font-family: 'Cookie';
+  font-style: cursive;
+  margin-top: 7px;
 }
 
-#add-bookmark-sign-out{
-    font-size: 30px;
-    font-family: 'Cookie';
-    font-style: cursive;
+#add-bookmark-sign-out {
+  font-size: 30px;
+  font-family: 'Cookie';
+  font-style: cursive;
 }
 
-#tag-edit-delete-comment-fill-in{
-    font-size: 20px;
-    font-family: 'Cookie';
-    font-style: cursive;
+#tag-edit-delete-comment-fill-in {
+  font-size: 20px;
+  font-family: 'Cookie';
+  font-style: cursive;
 }
 
-#main-page-body-style{ 
-    background-color: black;
+#main-page-body-style {
+  background-color: black;
 }
 
-#main-page-content-container{
-    text-align: center;
+#main-page-content-container {
+  text-align: center;
 }
-
-
-@import url('https://fonts.googleapis.com/css?family=Cookie&display=swap');
+/*# sourceMappingURL=style_index.css.map */
