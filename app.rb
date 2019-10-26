@@ -27,8 +27,13 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/bookmarks' do
-    flash[:notice] = "Please submit a valid URL" unless Bookmark.create(url: params[:url], title: params[:title], owner_id: session[:user_id])
-    redirect '/bookmarks'
+    bookmark = Bookmark.create(url: params[:url], title: params[:title], owner_id: session[:user_id])
+    if bookmark
+      redirect('/bookmarks')
+    else
+      flash[:notice] = "Please submit a valid URL."
+      redirect('/bookmarks/new')
+    end
   end
 
   delete '/bookmarks/:id' do
